@@ -1,0 +1,17 @@
+kumuluzee:
+  name: acmeair-authservice-java
+  env:
+    name: dev
+  server:
+    http:
+      port: 9080
+    context-path: /acmeair
+  opentracing:
+    jaeger:
+      service-name: jaeger-service
+      agent-host: jaeger
+      reporter:
+        log-spans: false
+      sampler: 
+        type: const 
+        param: 1
