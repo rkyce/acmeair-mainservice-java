@@ -1,18 +1,3 @@
-acmeair-booking-db:
-  container_name: acmeair-booking-db
-  image: mongo
-  net: ${NETWORK}
-
-acmeair-customer-db:
-  container_name: acmeair-customer-db
-  image: mongo
-  net: ${NETWORK}
-
-acmeair-flight-db:
-  container_name: acmeair-flight-db
-  image: mongo
-  net: ${NETWORK}
-
 acmeair-nginx1:
   container_name: acmeair-nginx1
   net: ${NETWORK}
@@ -34,8 +19,6 @@ acmeair-mainservice-java:
   dockerfile: Dockerfile
   net: ${NETWORK}
   build: ../acmeair-mainservice-java/
-  environment:
-    - LICENSE=accept
   mem_limit: 512m
 
 acmeair-authservice-java:
@@ -44,7 +27,6 @@ acmeair-authservice-java:
   net: ${NETWORK}
   build: ../acmeair-authservice-java/
   environment:
-    - LICENSE=accept
     - ACMEAIR_STACKAA_CUSTOMER_URL=http://acmeair-nginx1/customer
   mem_limit: 512m
 
@@ -54,13 +36,10 @@ acmeair-bookingservice-java:
   net: ${NETWORK}
   build: ../acmeair-bookingservice-java/
   environment:
-    - LICENSE=accept
-    - MONGO_HOST=acmeair-booking-db
+    - MONGO_HOST=192.168.90.82
     - ACMEAIR_STACKAA_AUTH_URL=http://acmeair-nginx1/auth
     - ACMEAIR_STACKAA_CUSTOMER_URL=http://acmeair-nginx1/customer
     - ACMEAIR_STACKAA_FLIGHT_URL=http://acmeair-nginx1/flight
-  volumes_from:
-    - acmeair-booking-db
   mem_limit: 512m
 
 acmeair-customerservice-java:
@@ -69,11 +48,8 @@ acmeair-customerservice-java:
   net: ${NETWORK}
   build: ../acmeair-customerservice-java/
   environment:
-    - LICENSE=accept
-    - MONGO_HOST=acmeair-customer-db
+    - MONGO_HOST=192.168.90.82
     - ACMEAIR_STACKAA_AUTH_URL=http://acmeair-nginx1/auth
-  volumes_from:
-    - acmeair-customer-db
   mem_limit: 512m
 
 acmeair-flightservice-java:
@@ -82,8 +58,5 @@ acmeair-flightservice-java:
   net: ${NETWORK}
   build: ../acmeair-flightservice-java/
   environment:
-    - LICENSE=accept
-    - MONGO_HOST=acmeair-flight-db
-  volumes_from:
-    - acmeair-flight-db
+    - MONGO_HOST=192.168.90.82
   mem_limit: 512m

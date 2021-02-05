@@ -1,6 +1,9 @@
 #!/bin/bash
 
 cd "$(dirname "$0")"
+
+./cleanAndBuildPackagesHD.sh
+
 cd ../
 
 mvn clean package

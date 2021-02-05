@@ -16,34 +16,30 @@ acmeair-nginx1:
 
 acmeair-mainservice-java:
   container_name: acmeair-mainservice-java
-  dockerfile: Dockerfile-kz
+  dockerfile: Dockerfile-tm
   net: ${NETWORK}
   build: ../acmeair-mainservice-java/
   mem_limit: 512m
 
 acmeair-authservice-java:
   container_name: acmeair-authservice-java
-  dockerfile: Dockerfile-kz
+  dockerfile: Dockerfile-tm
   net: ${NETWORK}
   build: ../acmeair-authservice-java/
-  environment:
-    - CUSTOMER_SERVICE_LOC=http://acmeair-nginx1/customer
   mem_limit: 512m
 
 acmeair-bookingservice-java:
   container_name: acmeair-bookingservice-java
-  dockerfile: Dockerfile-kz
+  dockerfile: Dockerfile-tm
   net: ${NETWORK}
   build: ../acmeair-bookingservice-java/
   environment:
     - MONGO_HOST=192.168.90.82
-    - CUSTOMER_SERVICE_LOC=http://acmeair-nginx1/customer
-    - FLIGHT_SERVICE_LOC=http://acmeair-nginx1/flight
   mem_limit: 512m
 
 acmeair-customerservice-java:
   container_name: acmeair-customerservice-java
-  dockerfile: Dockerfile-kz
+  dockerfile: Dockerfile-tm
   net: ${NETWORK}
   build: ../acmeair-customerservice-java/
   environment:
@@ -52,7 +48,7 @@ acmeair-customerservice-java:
 
 acmeair-flightservice-java:
   container_name: acmeair-flightservice-java
-  dockerfile: Dockerfile-kz
+  dockerfile: Dockerfile-tm
   net: ${NETWORK}
   build: ../acmeair-flightservice-java/
   environment:

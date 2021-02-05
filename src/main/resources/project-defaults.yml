@@ -1,0 +1,6 @@
+logging:
+    loggers:
+      io.undertow.request.security:
+        level: SEVERE
+    root-logger:
+      level: WARN
