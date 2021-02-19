@@ -2,3 +2,4 @@ FROM tomee:8.0.6-microprofile
 COPY target/acmeair-mainservice-java-3.3.war /usr/local/tomee/webapps/acmeair.war
 ENV JAVA_OPTS="-Dhttp.keepalive=true -Dhttp.maxConnections=100 -Dgeronimo.opentracing.span.converter.zipkin.logger.active=false"
 RUN sed -i "s/8080/9080/g" conf/server.xml
+COPY tomee-files/server.xml /usr/local/tomee/conf/server.xml

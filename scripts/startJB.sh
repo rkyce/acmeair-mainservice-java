@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-./cleanAndBuildPackages.sh
+./cleanAndBuildPackagesJB.sh
 
 cd ../
 
