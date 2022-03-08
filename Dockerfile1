@@ -2,7 +2,8 @@ FROM maven:3.8.4-jdk-11-slim
 COPY . /project
 WORKDIR /project/
 RUN mvn clean install
-COPY /project/src/main/liberty/config/server.xml /tmp/server.xml
-COPY /project/src/main/liberty/config/server.env /tmp/server.env
-COPY /project/src/main/liberty/config/jvm.options /tmp/jvm.options
-COPY /project/target/acmeair-mainservice-java-5.0.war /tmp
+RUN mkdir /app
+COPY /project/src/main/liberty/config/server.xml /app/server.xml
+COPY /project/src/main/liberty/config/server.env /app/server.env
+COPY /project/src/main/liberty/config/jvm.options /app/jvm.options
+COPY /project/target/acmeair-mainservice-java-5.0.war /app
