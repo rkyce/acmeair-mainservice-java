@@ -3,7 +3,7 @@ COPY . /project
 WORKDIR /project/
 RUN mvn clean install
 RUN mkdir /app
-COPY /project/src/main/liberty/config/server.xml /app/server.xml
-COPY /project/src/main/liberty/config/server.env /app/server.env
-COPY /project/src/main/liberty/config/jvm.options /app/jvm.options
-COPY /project/target/acmeair-mainservice-java-5.0.war /app
+RUN cp -p /project/src/main/liberty/config/server.xml /app/server.xml
+RUN cp -p /project/src/main/liberty/config/server.env /app/server.env
+RUN cp -p /project/src/main/liberty/config/jvm.options /app/jvm.options
+RUN cp -p /project/target/acmeair-mainservice-java-5.0.war /app
