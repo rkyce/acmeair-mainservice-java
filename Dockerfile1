@@ -2,6 +2,8 @@ FROM maven:3.8.4-jdk-11-slim
 COPY . /project
 WORKDIR /project/
 RUN cp -p /project/src/main/liberty/config/server.xml /mnt/server.xml
+RUN ls -l /mnt
+RUN mount
 #RUN mvn clean install
 #RUN cp -p /project/src/main/liberty/config/server.xml /media/server.xml
 #RUN cp -p /project/src/main/liberty/config/server.env /media/server.env
