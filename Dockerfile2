@@ -1,5 +1,5 @@
 #FROM maven:3.8.3-jdk-11-openj9 AS build-stage
-FROM maven:3.8.2-openjdk-11-slim AS build-stage
+FROM maven:3.8.4-ibmjava-8 AS build-stage
 COPY . /project
 WORKDIR /project/
 RUN mvn clean install
