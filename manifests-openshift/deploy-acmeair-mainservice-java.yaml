@@ -19,7 +19,8 @@ spec:
       containers:
       - name: acmeair-mainservice-java
         image: docker.io/rkyce/acmeair@sha256:f16f60cd4935d315cd24222148f6531a05767c1118d52d269155a0d4a8272d27
-        imagePullPolicy: IfNotPresent
+#        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 9080
         - containerPort: 9443
