@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
       - name: acmeair-mainservice-java
-        image: docker.io/rkyce/acmeair:multiarch
+        image: docker.io/rkyce/acmeair:train
+#        image: docker.io/rkyce/acmeair:train
 #        imagePullPolicy: IfNotPresent
         imagePullPolicy: Always
         ports:
