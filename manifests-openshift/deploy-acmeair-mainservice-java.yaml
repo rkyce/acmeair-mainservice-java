@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: acmeair-mainservice-java
-        image: docker.io/rkyce/acmeair-demo:train
+        image: docker.io/rkyce/acmeair-demo:airplane
 #        image: docker.io/rkyce/acmeair:train
 #        imagePullPolicy: IfNotPresent
         imagePullPolicy: Always
