@@ -2,29 +2,30 @@
 <server>
   <!-- Enable features -->
   <featureManager>
-    <feature>microProfile-5.0</feature>
+#    <feature>microProfile-5.0</feature>
+    <feature>microProfile-4.1</feature>
   </featureManager>
 
   <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
-  <httpEndpoint 
-    id="defaultHttpEndpoint" 
-    host="*" 
-    httpPort="9080" 
+  <httpEndpoint
+    id="defaultHttpEndpoint"
+    host="*"
+    httpPort="9080"
     httpsPort="9443">
-    <accessLogging 
-      enabled="${ACCESS_LOGGING_ENABLED}" 
-      filepath="${server.output.dir}/logs/http_defaultEndpoint_access.log" 
+    <accessLogging
+      enabled="${ACCESS_LOGGING_ENABLED}"
+      filepath="${server.output.dir}/logs/http_defaultEndpoint_access.log"
       logFormat='%h %u %t "%r" %s %b %D %{User-agent}i'>
     </accessLogging>
   </httpEndpoint>
 
   <quickStartSecurity userName="${env.USERNAME}" userPassword="${env.PASSWORD}" />
 
-  <logging 
-    consoleFormat="${LOGGING_FORMAT}" 
-    consoleSource="message,trace,accessLog,ffdc,audit" 
-    messageFormat="${LOGGING_FORMAT}" 
-    messageSource="message,trace,accessLog,ffdc,audit" 
+  <logging
+    consoleFormat="${LOGGING_FORMAT}"
+    consoleSource="message,trace,accessLog,ffdc,audit"
+    messageFormat="${LOGGING_FORMAT}"
+    messageSource="message,trace,accessLog,ffdc,audit"
     traceSpecification="${TRACE_SPEC}" />
 
   <webApplication name="acmeair-mainservice" location="acmeair-mainservice-java-5.0.war" contextRoot="/acmeair">
@@ -32,12 +33,12 @@
     <classloader apiTypeVisibility="api,ibm-api,spec,stable,third-party" />
   </webApplication>
 
-  <cors 
-    domain="/acmeair" 
-    allowedOrigins="*" 
-    allowedMethods="OPTIONS, GET, DELETE, POST" 
-    allowedHeaders="*" 
-    allowCredentials="true" 
+  <cors
+    domain="/acmeair"
+    allowedOrigins="*"
+    allowedMethods="OPTIONS, GET, DELETE, POST"
+    allowedHeaders="*"
+    allowCredentials="true"
     maxAge="3600" />
 
 </server>
