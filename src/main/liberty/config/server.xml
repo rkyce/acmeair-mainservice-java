@@ -2,7 +2,6 @@
 <server>
   <!-- Enable features -->
   <featureManager>
-#    <feature>microProfile-5.0</feature>
     <feature>microProfile-4.1</feature>
   </featureManager>
 
