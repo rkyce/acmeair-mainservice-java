@@ -16,6 +16,7 @@ RUN curl -sL -o /config/apps/jarfile.txt https://ibm.box.com/shared/static/nsp0y
 RUN configure.sh
 ENTRYPOINT ["/opt/ibm/wlp/bin/server", "run", "defaultServer"]
 
+
 #FROM ibmcom/websphere-liberty:kernel-java8-ibmjava-ubi
 #RUN ls -l /mnt
 #RUN mount
